@@ -1,0 +1,92 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Instagram, Twitter, Youtube } from "lucide-react";
+
+export default function FamousPersonWebsite() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white">
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center text-center py-24 px-6">
+        <motion.img
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          src="https://via.placeholder.com/200"
+          alt="Famous Person"
+          className="w-40 h-40 rounded-full border-4 border-white shadow-2xl mb-6"
+        />
+        <motion.h1
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="text-5xl font-bold mb-4"
+        >
+          OLIVER TAN
+        </motion.h1>
+        <p className="text-lg text-gray-300 max-w-2xl">
+          Tech Visionary • Entrepreneur • Innovator
+        </p>
+        <div className="mt-6 flex gap-4">
+          <Button className="rounded-2xl px-6">Latest Project</Button>
+          <Button variant="outline" className="rounded-2xl px-6 text-black bg-white">
+            Contact
+          </Button>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-20 px-6 max-w-5xl mx-auto">
+        <h2 className="text-3xl font-semibold mb-6 text-center">About</h2>
+        <Card className="bg-gray-800 border-none rounded-2xl shadow-xl">
+          <CardContent className="p-8 text-gray-300 text-center leading-relaxed">
+            Oliver Tan is a legendary tech visionary best known for creating one of the world’s most powerful search engine platforms, revolutionizing how people access information online. As a bold innovator and entrepreneur, he transformed the digital world with cutting-edge technology, artificial intelligence, and global connectivity solutions.
+          </CardContent>
+        </Card>
+      </section>
+
+      {/* Projects Section */}
+      <section className="py-20 px-6 bg-gray-950">
+        <h2 className="text-3xl font-semibold mb-12 text-center">Projects</h2>
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {["Global Search Engine Launch", "AI Innovation Summit", "Tech Education Foundation"].map(
+            (project, index) => (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.05 }}
+              >
+                <Card className="bg-gray-800 border-none rounded-2xl shadow-lg">
+                  <CardContent className="p-6">
+                    <h3 className="text-xl font-semibold mb-2">{project}</h3>
+                    <p className="text-gray-400 text-sm">
+                      Discover more about this exciting milestone and how it
+                      connects with fans worldwide.
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            )
+          )}
+        </div>
+      </section>
+
+      {/* Social Section */}
+      <section className="py-20 px-6 text-center">
+        <h2 className="text-3xl font-semibold mb-8">Follow Me</h2>
+        <div className="flex justify-center gap-8">
+          <a href="https://www.instagram.com/nastypotatoez7/" target="_blank" rel="noopener noreferrer">
+            <Instagram size={32} className="cursor-pointer hover:scale-110 transition" />
+          </a>
+          <Twitter size={32} className="cursor-pointer hover:scale-110 transition" />
+          <Youtube size={32} className="cursor-pointer hover:scale-110 transition" />
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-6 text-center text-gray-500 border-t border-gray-800">
+        © {new Date().getFullYear()} Oliver Tan. All Rights Reserved.
+      </footer>
+    </div>
+  );
+}
